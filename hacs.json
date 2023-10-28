@@ -1,0 +1,5 @@
+{
+    "name": "Environment Variable",
+    "homeassistant": "2023.10.0",
+    "render_readme": true
+}

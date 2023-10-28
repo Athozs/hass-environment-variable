@@ -1,0 +1,13 @@
+{
+  "domain": "environment_variable",
+  "name": "Environment Variable",
+  "codeowners": [
+    "@Athozs"
+  ],
+  "dependencies": [],
+  "documentation": "https://www.github.com/Athozs/hass-environment-variable",
+  "iot_class": "local_push",
+  "issue_tracker" : "https://github.com/Athozs/hass-environment-variable/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

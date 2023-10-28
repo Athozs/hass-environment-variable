@@ -1,0 +1,32 @@
+name: "Publish"
+
+on:
+  release:
+    types: [published]
+
+defaults:
+  run:
+    working-directory: custom_components
+
+jobs:
+  publish:
+    name: "Publish"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "Update version"
+        run: |
+          current="$(jq --raw-output .version environment_variable/manifest.json | sed 's/\./\\./g')"
+          sed -i s/$current/${{ github.event.release.tag_name }}/ environment_variable/manifest.json
+
+      - name: "Zip component"
+        run: |
+          zip environment_variable.zip -r ./
+
+      - name: "Upload assets"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.event.release.tag_name }} environment_variable.zip
