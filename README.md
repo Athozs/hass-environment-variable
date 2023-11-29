@@ -117,18 +117,20 @@ environment_variable:
 
 2. Restart Home Assistant.
 
-3. You may need to reload your integrations after Home Assistant has started to take env vars into account.
+3. You may need to reload your integrations after Home Assistant has started to take environment variables into account.
 
 4. Check the logs, look for pattern `environment_variable` in traces (there is not UI for _Environment Variable_).
 
 
 ## 4. HOW DOES _Environment Variable_ WORK ?
 
-When enabled, _Environment Variable_ integration sets env vars at Home Assistant application level using standard Python lib, meaning env vars are available only inside Home Assistant Python application/integrations.
+When enabled, _Environment Variable_ integration sets environment variables at Home Assistant application level using standard Python lib, meaning environment variables are available only inside Home Assistant Python application/integrations.
 
 Environment variables that are set with this integration won't be available at operating system level.
 
 It loads environment variables only at Home Assistant startup.
+
+There is no control on integrations startup order, you may need to reload your integration after Home Assistant has completely started to take environment variables into account.
 
 For now, _Environment Variable_ won't be visible in Home Assistant integrations dashboard, there is not UI component for _Environment Variable_ integration. This may be possible in future release.
 
@@ -157,9 +159,9 @@ default_config:
 
 ## 6. TROUBLESHOOTING
 
-You can't check your env vars using the Shell prompt, because env var that are set with this integration are only available at Hass Python application level.
+You can't check your environment variables using the Shell prompt, because environment variables that are set with this integration are only available at Home Assistant Python application level.
 
-The only way to check env var is to access it through Python code inside an integration.
+The only way to check environment variable is to access it through Python code inside an integration.
 
 ## 7. KNOWN ISSUES
 
