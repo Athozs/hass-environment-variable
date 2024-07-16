@@ -119,7 +119,7 @@ environment_variable:
 
 3. You may need to reload your integrations after Home Assistant has started to take environment variables into account.
 
-4. Check the logs, look for pattern `environment_variable` in traces (there is not UI for _Environment Variable_).
+4. Check the logs, look for pattern `environment_variable` in traces (there is no UI for _Environment Variable_ integration).
 
 
 ## 4. HOW DOES _Environment Variable_ WORK ?
@@ -161,7 +161,7 @@ default_config:
 
 You can't check your environment variables using the Shell prompt, because environment variables that are set with this integration are only available at Home Assistant Python application level.
 
-The only way to check environment variable is to access it through Python code inside an integration.
+The only way to check environment variable is to access it through Python code inside another integration.
 
 ## 7. KNOWN ISSUES
 
