@@ -110,27 +110,29 @@ Example:
 ---
 default_config:
 environment_variable:
-  REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+  awesome_var: whatever  # will be available as AWESOME_VAR
   FOOBAR: baz
 # ...
 ```
 
 2. Restart Home Assistant.
 
-3. You may need to reload your integrations after Home Assistant has started to take environment variables into account.
+3. You may need to reload other integrations after Home Assistant has started to take environment variables into account.
 
 4. Check the logs, look for pattern `environment_variable` in traces (there is no UI for _Environment Variable_ integration).
 
 
 ## 4. HOW DOES _Environment Variable_ WORK ?
 
-When enabled, _Environment Variable_ integration sets environment variables at Home Assistant application level using standard Python lib, meaning environment variables are available only inside Home Assistant Python application/integrations.
+When enabled, _Environment Variable_ integration sets environment variables in Home Assistant application using standard Python lib, meaning environment variables are available only inside Home Assistant Python application/integrations.
 
-Environment variables that are set with this integration won't be available at operating system level.
+Environment variables that are set with this integration won't be available in operating system, meaning, for example, environment variables won't be available from Shell prompt.
 
 It loads environment variables only at Home Assistant startup.
 
-There is no control on integrations startup order, you may need to reload your integration after Home Assistant has completely started to take environment variables into account.
+Environment variables are always translated into uppercase, meaning if `awesome_var` is set in configuration.yaml, it will be available as `AWESOME_VAR`.
+
+There is no control on integrations startup order, you may need to reload other integrations after Home Assistant has completely started to take environment variables into account.
 
 For now, _Environment Variable_ won't be visible in Home Assistant integrations dashboard, there is not UI component for _Environment Variable_ integration. This may be possible in future release.
 
@@ -162,6 +164,14 @@ default_config:
 You can't check your environment variables using the Shell prompt, because environment variables that are set with this integration are only available at Home Assistant Python application level.
 
 The only way to check environment variable is to access it through Python code inside another integration.
+
+Environment variables are displayed in debug logs, you need to enable logs with debug level (you should revert to info level then):
+
+```yaml
+# configuration.yaml
+logger:
+  default: debug
+```
 
 ## 7. KNOWN ISSUES
 

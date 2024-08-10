@@ -12,17 +12,16 @@ from homeassistant.helpers.typing import ConfigType
 
 from .const import DOMAIN
 
-
 _LOGGER = logging.getLogger(__name__)
 
 CONFIG_SCHEMA = vol.Schema({DOMAIN: {cv.string: cv.string}}, extra=vol.ALLOW_EXTRA)
 
 
-def setup(hass: HomeAssistant, config: ConfigType) -> bool:
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up Environment Variable component."""
 
     try:
-        set_environment_variable(config)
+        await set_environment_variable(config)
     except:
         _LOGGER.warning("Environment Variable setup has been interrupted.")
         raise
@@ -30,12 +29,15 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     return True
 
 
-def set_environment_variable(config: ConfigType) -> bool:
+async def set_environment_variable(config: ConfigType) -> bool:
     """Set an environment variable at HA application level."""
 
     conf = config.get(DOMAIN)
 
     for env_var_name, env_var_value in conf.items():
-        os.environ[str(env_var_name).upper()] = str(env_var_value)
+        var = str(env_var_name).upper()
+        val = str(env_var_value)
+        os.environ[var] = val
+        _LOGGER.debug(f"Setting environment variable: {var} => {val}")
 
     return True
