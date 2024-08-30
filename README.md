@@ -1,6 +1,10 @@
 <!-- [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration) -->
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
+<p align="center">
+  <img src="img/hass-environment-variable-icon.png" />
+</p>
+
 # Environment variable for Home Assistant
 
 _Environment Variable_ integration for Home Assistant allows to add environment variable automatically each time Home Assistant is started, even after Home Assistant is updated/upgraded.
