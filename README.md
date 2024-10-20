@@ -30,27 +30,24 @@ This integration is __useless__ for Home Assistant Docker image and Core install
 ## 1. INSTALL WITH HACS
 
 <!--
-* [Install HACS](https://hacs.xyz/docs/setup/prerequisites) if not already done.
+* [Install HACS](https://hacs.xyz/docs/use/) if not already done.
 * Then, go to your Home Assistant,
     * -> HACS
-    * -> Integrations
-    * -> Click _Explore and Download Repositories_
     * -> Search for "Environment Variable"
-    * -> From the _Environment Variable_ presentation page: click _Download_
+    * -> Click the three-dots menu in line with _Environment Variable_, then click _Download_
 -->
 
 
 _Environment Variable_ integration may not be available yet from HACS interface, install _Environment Variable_ by adding this Github repository to HACS custom repositories:
 
-* [Install HACS](https://hacs.xyz/docs/setup/prerequisites) if not already done.
+* [Install HACS](https://hacs.xyz/docs/use/) if not already done.
 * Then, go to your Home Assistant,
     * -> HACS
-    * -> Integrations
-    * -> Click the Three-dots button in top-right corner
+    * -> Click the three-dots menu in top-right corner
     * -> Custom repositories
     * -> Fill in
       - Repository: https://github.com/Athozs/hass-environment-variable.git
-      - Category: Integration
+      - Type: Integration
     * -> Click Add
 
 <!-- ![](img/hacs-custom-repo.jpg) ![](img/hacs-repo-box.png) -->
