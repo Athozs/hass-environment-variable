@@ -166,7 +166,7 @@ You can't check your environment variables using the Shell prompt, because envir
 
 The only way to check environment variable is to access it through Python code inside another integration.
 
-Environment variables are displayed in debug logs, you need to enable logs with debug level (you should revert to info level then):
+Environment variables are displayed in debug logs, you need to enable logs with level `debug` (you should revert to level `info` then):
 
 ```yaml
 # configuration.yaml
